@@ -1,7 +1,7 @@
 -- 建立 order_item 表（如果不存在）
 CREATE TABLE IF NOT EXISTS order_item (
     -- 訂單明細的唯一標識符
-    id UUID PRIMARY KEY,
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     -- 所屬訂單的唯一標識符
     order_id UUID NOT NULL,
     -- 商品的唯一標識符

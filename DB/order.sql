@@ -1,7 +1,7 @@
 -- 建立 order 表（如果不存在）
 CREATE TABLE IF NOT EXISTS "order" (
     -- 訂單的唯一標識符
-    id UUID PRIMARY KEY,
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     -- 下單用戶的唯一標識符
     user_id UUID NOT NULL,
     -- 訂單日期

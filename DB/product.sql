@@ -1,7 +1,7 @@
 -- 建立 product 表（如果不存在）
 CREATE TABLE IF NOT EXISTS product (
     -- 商品的唯一標識符
-    id UUID PRIMARY KEY,
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     -- 商品名稱
     name VARCHAR(100) NOT NULL,
     -- 商品價格
