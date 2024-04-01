@@ -13,6 +13,16 @@
         <p>Port: {{.Port}}</p>
         <p>DB URL: {{.DBURL}}</p>
         <p>Mongo URL: {{.MongoURL}}</p>
+        {{ if .Username }}
+        <p>Welcome, {{ .Username }}</p>
+        {{ else }}
+        <p>Welcome, guest</p>
+        {{ end }}
+    </div>
+    <div id="jwtSessionInfo">
+        <h2>JWT & Session Information</h2>
+        <p>JWT Claims: {{.JWTClaims}}</p>
+        <p>Session Data: {{.SessionData}}</p>
     </div>
     <div id="status">JS Live</div>
     <div class="container">

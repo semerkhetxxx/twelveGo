@@ -12,3 +12,7 @@
 
 go version 1.21.1
 `./scripts/start.sh`
+
+
+go get github.com/gin-contrib/sessions
+go get github.com/gin-contrib/sessions/cookie

@@ -1,8 +1,8 @@
 package api
 
 import (
+	"/models"
 	"net/http"
-	"my_ecommerce_backend/models"
 )
 
 func CreateCart(w http.ResponseWriter, r *http.Request) {

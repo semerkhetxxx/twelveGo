@@ -1,15 +1,15 @@
 package api
 
 import (
-    "my_ecommerce_backend/models"
-    "net/http"
+	"/models"
+	"net/http"
 )
 
 func CreateProduct(w http.ResponseWriter, r *http.Request) {
-    product := models.Product{}
-    err := product.Create()
-    if err != nil {
-        // 處理錯誤
-    }
-    // 返回成功響應
+	product := models.Product{}
+	err := product.Create()
+	if err != nil {
+		// 處理錯誤
+	}
+	// 返回成功響應
 }

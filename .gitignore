@@ -80,4 +80,7 @@ appsettings.Development.json
 **/.wav
 **/.aac
 config.yaml
-config_example.yaml
+build/server
+
+build/server
+**/**checkpoints**
