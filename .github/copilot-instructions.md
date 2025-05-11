@@ -1,9 +1,21 @@
 # Copilot 使用說明
 
+
+
 此專案主要使用 **Go 語言**，並搭配 **Gin 框架** 開發 API 服務（參考 [cmd/api/main.go](cmd/api/main.go)），並使用 **GORM** 進行資料庫操作（參考 [internal/database/db.go](internal/database/db.go)）。  
 此外，使用 **Viper** 來管理設定檔，並採用 **Zap 日誌庫** 進行日誌記錄。
 
----
+### Guidelines for GO
+
+#### GIN
+
+- Use middleware for cross-cutting concerns like authentication, logging, and request validation
+- Implement structured logging with context for better debugging of {{error_scenarios}}
+- Use binding validation for request payloads with custom validators for complex business rules
+- Apply the context package properly to manage request-scoped values and cancellation signals
+- Implement proper error handling with custom error types and consistent HTTP status codes
+- Use the gin.H map for JSON responses consistently across handlers for {{api_endpoints}}
+
 
 ## 📌 **程式碼風格與最佳實踐**
 請遵循 Google 的 **[Go Code Style Guide](https://google.github.io/styleguide/go/)**，並遵守以下規範：
@@ -163,11 +175,11 @@
 ---
 
 ## 📌 **參考檔案**
-- **[cmd/api/main.go](cmd/api/main.go)** - 主要 API 入口
-- **[internal/database/db.go](internal/database/db.go)** - 資料庫初始化與連線管理
-- **[pkg/middleware/logger.go](pkg/middleware/logger.go)** - Zap 日誌記錄
-- **[pkg/models/user.go](pkg/models/user.go)** - `User` 資料表對應的 Go Struct
-- **[test/auth_test.go](test/auth_test.go)** - `auth` API 測試
+- **[cmd/api/main.go](../cmd/api/main.go)** - 主要 API 入口
+- **[internal/database/db.go](../internal/database/db.go)** - 資料庫初始化與連線管理
+- **[pkg/middleware/logger.go](../pkg/middleware/logger.go)** - Zap 日誌記錄
+- **[pkg/models/user.go](../pkg/models/user.go)** - `User` 資料表對應的 Go Struct
+- **[test/auth_test.go](../test/auth_test.go)** - `auth` API 測試
 
 ---
 
@@ -195,3 +207,21 @@ go test ./...
 ✅ **解釋以及說明永遠使用zh-tw**  
 
 🚀 **請務必遵守本文件，以確保程式碼品質！**
+
+
+## DATABASE
+
+### Guidelines for NOSQL
+
+#### DYNAMODB
+
+- Design access patterns first, then create tables and indexes to support {{query_requirements}}
+- Implement single-table design for related entities to minimize RCU/WCU costs
+- Use sparse indexes and composite keys for efficient querying
+
+#### POSTGRES
+
+- Use connection pooling to manage database connections efficiently
+- Implement JSONB columns for semi-structured data instead of creating many tables for {{flexible_data}}
+- Use materialized views for complex, frequently accessed read-only data
+
